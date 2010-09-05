@@ -12,8 +12,8 @@
                                     "Snakes on a Plane"  3.5
                                     "Just My Luck"  1.5
                                     "Superman Returns"  5.0
-                                    "You, me and Dupree"  3.5
-                                    "The Night Listener"  3.0}
+                                    "The Night Listener"  3.0
+                                    "You, me and Dupree"  3.5}
                    "Michael Phllips"  {"Lady in the Water"  2.5
                                        "Snakes on a Plane"  3.0
                                        "Superman Returns"  3.5
@@ -53,6 +53,10 @@
          (get-shared-prefs test-critics "Test1" "Test2"))))
 
 (deftest sim-distance-test
-  (is (= 0.14814814814814814 (sim-distance test-critics "Lisa Rose" "Gene Seymour")))
+  (is (= 0.29429805508554946 (sim-distance test-critics "Lisa Rose" "Gene Seymour")))
   (is (= 1.0 (sim-distance test-critics "Test0" "Test1")))
   (is (= 0.0 (sim-distance test-critics "Test1" "Test2"))))
+
+(deftest sim-pearson-test
+  (is (= -1 (sim-pearson test-critics "Test1" "Test2")))
+  (is (= 0.39605901719066977 (sim-pearson test-critics "Lisa Rose" "Gene Seymour"))))
